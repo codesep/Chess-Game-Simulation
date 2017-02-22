@@ -1,13 +1,15 @@
 class Player{
 	map<string, pair<int, char> > pieces;
 public:
+
+	// Initial Configuration of the players
 	Player(bool type){
 		if(type == 1){	// Player with white pieces
 			
 			//	Pawns ('P')
-			char ix = '1';
+			int ix = 1;
 			for(char ch = 'a'; ch <= 'h'; ch++, ix++)
-				pieces["P" + ix] = make_pair(2, ch);
+				pieces["P" + to_string(ix)] = make_pair(2, ch);
 
 			// Rook	('R')
 			pieces["R1"] = make_pair(1, 'a');
@@ -31,9 +33,9 @@ public:
 		else{			// Player with black pieces
 
 			//	Pawns ('P')
-			char ix = '1';
+			int ix = 1;
 			for(char ch = 'a'; ch <= 'h'; ch++, ix++)
-				pieces["P" + ix] = make_pair(7, ch);
+				pieces["P" + to_string(ix)] = make_pair(7, ch);
 
 			// Rook	('R')
 			pieces["R1"] = make_pair(8, 'a');
