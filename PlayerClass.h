@@ -1,60 +1,17 @@
 class Player{
+	// Stores the position of pieces
 	map<string, pair<int, char> > pieces;
+
+	// Stores the piece stored at a given position
+	map<pair<int, char>, string> reversePieces;
+
 public:
-
 	// Initial Configuration of the players
-	Player(bool type){
-		if(type == 1){	// Player with white pieces
-			
-			//	Pawns ('P')
-			int ix = 1;
-			for(char ch = 'a'; ch <= 'h'; ch++, ix++)
-				pieces["P" + to_string(ix)] = make_pair(2, ch);
+	Player(bool type); 
 
-			// Rook	('R')
-			pieces["R1"] = make_pair(1, 'a');
-			pieces["R2"] = make_pair(1, 'h');
+	// Checks if a given block is filled by a piece or not
+	bool checkFreeBlock(pair<int, char> pos);
 
-			// Knight	('N')
-			pieces["N1"] = make_pair(1, 'b');
-			pieces["N2"] = make_pair(1, 'g');
-
-			//Bishop ('B')
-			pieces["B1"] = make_pair(1, 'c');
-			pieces["B2"] = make_pair(1, 'f');
-
-			//Queen ('Q')
-			pieces["Q"] = make_pair(1, 'd');
-
-			//King ('K')
-			pieces["K"] = make_pair(1, 'e');
-
-		}	
-		else{			// Player with black pieces
-
-			//	Pawns ('P')
-			int ix = 1;
-			for(char ch = 'a'; ch <= 'h'; ch++, ix++)
-				pieces["P" + to_string(ix)] = make_pair(7, ch);
-
-			// Rook	('R')
-			pieces["R1"] = make_pair(8, 'a');
-			pieces["R2"] = make_pair(8, 'h');
-
-			// Knight	('N')
-			pieces["N1"] = make_pair(8, 'b');
-			pieces["N2"] = make_pair(8, 'g');
-
-			//Bishop ('B')
-			pieces["B1"] = make_pair(8, 'c');
-			pieces["B2"] = make_pair(8, 'f');
-
-			//Queen ('Q')
-			pieces["Q"] = make_pair(8, 'd');
-
-			//King ('K')
-			pieces["K"] = make_pair(8, 'e');
-
-		}
-	}		
-};
+	// Making a move, i.e., moving 'piece' from it's current position to 'finalPosition'
+	void makeMove(string piece, string finalPostion);
+};	

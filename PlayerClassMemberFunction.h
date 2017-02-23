@@ -75,6 +75,12 @@ Player::Player(bool type){
 	}
 }
 
+bool Player::checkFreeBlock(pair<int, char> pos){
+	if(this->reversePieces[pos] == "")
+		return 1;
+	return 0;
+}
+
 
 //Making a move
 void Player::makeMove(Player &opponent, string piece, string finalPostion){
@@ -82,7 +88,7 @@ void Player::makeMove(Player &opponent, string piece, string finalPostion){
 	pair<int, char> pos = make_pair(finalPostion[0] - '0', finalPostion[1]);
 
 	//Check if opponent's piece is present in the final position or not
-	if(opponent.reversePieces[pos] == ""){
+	if(opponent.checkFreeBlock(pos)){
 		//Remove the piece from it's current position
 		this->reversePieces[this->pieces[piece]] = "";
 
@@ -91,5 +97,8 @@ void Player::makeMove(Player &opponent, string piece, string finalPostion){
 
 		//Update reversePieces for the piece
 		this->reversePieces[pos] = piece;
+	}
+	else{	//Current Player will remove a piece from opponent's set of pieces 
+		
 	}
 }
