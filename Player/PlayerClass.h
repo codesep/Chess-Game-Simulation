@@ -5,7 +5,6 @@
 using namespace std;
 
 class Player{
-public:
 	// Stores the position of pieces
 	map<string, pair<int, char> > pieces;
 
