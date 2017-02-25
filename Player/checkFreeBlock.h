@@ -1,5 +1,10 @@
 /*
-	Player Class checkFreeBlock definition. Takes input the position ('pos') and checks if the position is occupied by a piece of the Player or not.
+	Class: Player
+
+	Member Function: checkFreeBlock
+
+	Takes input the position ('pos') and checks if the position is occupied by a piece of the Player or not.
+	
 	Returns true or false.
 */
 

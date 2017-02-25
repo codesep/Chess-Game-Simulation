@@ -1,5 +1,10 @@
 /*
-	Player Class removePiece definition. Takes input the piece which is to be removed from the configuration. 
+	Class: Player
+
+	Member Function: removePiece
+
+	Takes input the piece which is to be removed from the configuration. 
+	
 	Puts NULL value in pieces data structure and empty string in reversePieces data structure.
 */
 

@@ -1,5 +1,10 @@
 /*
-	Player Class Constructor Definition. Takes input the type, i.e., white or black player, using a boolean variable. 
+	Class: Player
+
+	Member Function: Player Constructor
+
+	Takes input the type, i.e., white or black player, using a boolean variable. 
+
 	Set up the initial configuration of the player.
 */
 
@@ -9,36 +14,36 @@ Player::Player(bool type){
 		//	Pawns ('P')
 		int ix = 1;
 		for(char ch = 'a'; ch <= 'h'; ch++, ix++){
-			pieces["P" + to_string(ix)] = make_pair(2, ch);
-			reversePieces[make_pair(2, ch)] = "P" + to_string(ix);
+			pieces["WP" + to_string(ix)] = make_pair(2, ch);
+			reversePieces[make_pair(2, ch)] = "WP" + to_string(ix);
 		}
 
 		// Rook	('R')
-		pieces["R1"] = make_pair(1, 'a');
-		pieces["R2"] = make_pair(1, 'h');
-		reversePieces[make_pair(1, 'a')] = "R1";
-		reversePieces[make_pair(1, 'h')] = "R2";
+		pieces["WR1"] = make_pair(1, 'a');
+		pieces["WR2"] = make_pair(1, 'h');
+		reversePieces[make_pair(1, 'a')] = "WR1";
+		reversePieces[make_pair(1, 'h')] = "WR2";
 
 
 		// Knight	('N')
-		pieces["N1"] = make_pair(1, 'b');
-		pieces["N2"] = make_pair(1, 'g');
-		reversePieces[make_pair(1, 'b')] = "N1";
-		reversePieces[make_pair(1, 'g')] = "N2";
+		pieces["WN1"] = make_pair(1, 'b');
+		pieces["WN2"] = make_pair(1, 'g');
+		reversePieces[make_pair(1, 'b')] = "WN1";
+		reversePieces[make_pair(1, 'g')] = "WN2";
 
 		//Bishop ('B')
-		pieces["B1"] = make_pair(1, 'c');
-		pieces["B2"] = make_pair(1, 'f');
-		reversePieces[make_pair(1, 'c')] = "B1";
-		reversePieces[make_pair(1, 'f')] = "B2";
+		pieces["WB1"] = make_pair(1, 'c');
+		pieces["WB2"] = make_pair(1, 'f');
+		reversePieces[make_pair(1, 'c')] = "WB1";
+		reversePieces[make_pair(1, 'f')] = "WB2";
 
 		//Queen ('Q')
-		pieces["Q"] = make_pair(1, 'd');
-		reversePieces[make_pair(1, 'd')] = "Q";
+		pieces["WQ"] = make_pair(1, 'd');
+		reversePieces[make_pair(1, 'd')] = "WQ";
 
 		//King ('K')
-		pieces["K"] = make_pair(1, 'e');
-		reversePieces[make_pair(1, 'e')] = "K";
+		pieces["WK"] = make_pair(1, 'e');
+		reversePieces[make_pair(1, 'e')] = "WK";
 
 	}	
 	else{			// Player with black pieces
@@ -46,35 +51,35 @@ Player::Player(bool type){
 		//	Pawns ('P')
 		int ix = 1;
 		for(char ch = 'a'; ch <= 'h'; ch++, ix++){
-			pieces["P" + to_string(ix)] = make_pair(7, ch);
-			reversePieces[make_pair(7, ch)] = "P" + to_string(ix);
+			pieces["BP" + to_string(ix)] = make_pair(7, ch);
+			reversePieces[make_pair(7, ch)] = "WP" + to_string(ix);
 		}
 
 		// Rook	('R')
-		pieces["R1"] = make_pair(8, 'a');
-		pieces["R2"] = make_pair(8, 'h');
-		reversePieces[make_pair(8, 'a')] = "R1";
-		reversePieces[make_pair(8, 'h')] = "R2";
+		pieces["BR1"] = make_pair(8, 'a');
+		pieces["BR2"] = make_pair(8, 'h');
+		reversePieces[make_pair(8, 'a')] = "WR1";
+		reversePieces[make_pair(8, 'h')] = "WR2";
 
 		// Knight	('N')
-		pieces["N1"] = make_pair(8, 'b');
-		pieces["N2"] = make_pair(8, 'g');
-		reversePieces[make_pair(8, 'b')] = "N1";
-		reversePieces[make_pair(8, 'g')] = "N2";
+		pieces["BN1"] = make_pair(8, 'b');
+		pieces["BN2"] = make_pair(8, 'g');
+		reversePieces[make_pair(8, 'b')] = "WN1";
+		reversePieces[make_pair(8, 'g')] = "WN2";
 
 		//Bishop ('B')
-		pieces["B1"] = make_pair(8, 'c');
-		pieces["B2"] = make_pair(8, 'f');
-		reversePieces[make_pair(8, 'c')] = "B1";
-		reversePieces[make_pair(8, 'f')] = "B2";
+		pieces["BB1"] = make_pair(8, 'c');
+		pieces["BB2"] = make_pair(8, 'f');
+		reversePieces[make_pair(8, 'c')] = "WB1";
+		reversePieces[make_pair(8, 'f')] = "WB2";
 
 		//Queen ('Q')
-		pieces["Q"] = make_pair(8, 'd');
-		reversePieces[make_pair(8, 'd')] = "Q";
+		pieces["BQ"] = make_pair(8, 'd');
+		reversePieces[make_pair(8, 'd')] = "WQ";
 
 		//King ('K')
-		pieces["K"] = make_pair(8, 'e');
-		reversePieces[make_pair(8, 'e')] = "K";
+		pieces["BK"] = make_pair(8, 'e');
+		reversePieces[make_pair(8, 'e')] = "WK";
 
 	}
 }

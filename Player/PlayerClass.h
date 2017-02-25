@@ -2,7 +2,7 @@
 	Defining class Player
 */
 
-using namespace std;
+// using namespace std;
 
 class Player{
 	// Stores the position of pieces
@@ -12,6 +12,8 @@ class Player{
 	map<pair<int, char>, string> reversePieces;
 
 public:
+	// Player();
+
 	// Initial Configuration of the players
 	Player(bool type); 
 

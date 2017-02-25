@@ -2,7 +2,7 @@
 	Defining class State
 */
 
-using namespace std;
+// using namespace std;
 
 class State{
 	// white and black players
@@ -15,6 +15,9 @@ class State{
 	string currentPlayer;
 
 public:
+	// Initial State
+	State();
+
 	//Get current player type
 	string getCurrentPlayerType();
 
