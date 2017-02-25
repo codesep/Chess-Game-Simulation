@@ -8,4 +8,3 @@ bool Player::checkFreeBlock(pair<int, char> pos){
 		return 1;
 	return 0;
 }
-

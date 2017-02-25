@@ -25,5 +25,11 @@ public:
 	void makeMoveBlack(string piece, string finalPosition);
 
 	//Tests check mate condition for the current player
-	bool testCheckMate()
+	bool testCheckMate();
+
+	// Tests if the move of player white is legal or not
+	bool checkLegalMoveWhite(string piece, string finalPosition);
+
+	// Tests if the move of player black is legal or not
+	bool checkLegalMoveBlack(string piece, string finalPosition);
 };	
