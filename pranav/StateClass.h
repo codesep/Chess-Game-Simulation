@@ -82,6 +82,7 @@ public:
 	bool isCheck(bool);
 	void makeMove(string, string, bool);
 	bool checkmate(bool);
+	vector<pair<string, string> > getValidActions(bool);
 };
 
 bool State::checkmate(bool colour) {
@@ -200,3 +201,87 @@ bool State::validateWhiteMove(string piece, string finalPosition) {
 	}
 	return true;
 }
+
+vector<pair<string, string> > State::getValidActionsPawn(string piece, pair<int, char> currentPosition, int colour){
+	int i = currentPosition.first;
+	char ch = currentPosition.second;
+
+	vector<pair<string, string> > ret;
+
+	if(colour == 1){
+
+		if(i + 1<=8 && chessBoard[i + 1][ch] == ""){
+	        ret.push_back(make_pair(piece, to_string(i + 1) + ch));
+	        if(i == 2 && tile[i + 2][ch] == "")
+		        ret.push_back(make_pair(piece, to_string(i + 2) + ch));
+		}
+
+	    if(i + 1<=8 && ch + 1<='h' && colourOfPiece[i + 1][ch + 1] == -1)
+	        ret.push_back(make_pair(piece, to_string(i + 1) + char(ch + 1)));
+
+	    if(i + 1 <= 8 && ch - 1 >= 'a' && colourOfPiece[i + 1][ch - 1] == -1)
+	    	ret.push_back(make_pair(piece, to_string(i + 1) + char(ch - 1)));		
+	}
+	else{
+		if(i - 1 >= 1 && chessBoard[i - 1][ch] == ""){
+	        ret.push_back(make_pair(piece, to_string(i - 1) + ch));
+	        if(i == 7 && tile[i - 2][ch] == "")
+		        ret.push_back(make_pair(piece, to_string(i - 2) + ch));
+		}
+
+	    if(i - 1 >= 1 && ch + 1<='h' && colourOfPiece[i - 1][ch + 1] == 1)
+	        ret.push_back(make_pair(piece, to_string(i - 1) + char(ch + 1)));
+
+	    if(i - 1 >= 1 && ch - 1 >= 'a' && colourOfPiece[i - 1][ch - 1] == 1)
+	    	ret.push_back(make_pair(piece, to_string(i - 1) + char(ch - 1)));			
+	}
+	return ret;
+}
+
+vector<pair<string, string> > State::getValidActions(int colour){
+	vector<pair<string, string> > Actions;
+	for(int r = 1; r <= 8; r++){
+		for(char ch = 'a'; ch <= 'h'; ch++){
+			if(colourOfPiece[r][ch] == colour*-1){
+				vector<pair<string, string> > tmp;
+
+				switch(chessBoard[r][ch][0]){
+					case 'P': ret = getValidActionsPawn
+				}
+
+				for(int i = 0; i < tmp.size(); i++)
+					Actions.push_back(tmp[i]);
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -116,6 +116,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
 
     QWidget *gameWidget = new QWidget();
+    gameWidget->setAttribute(Qt::WA_Hover);
     gameWidget->setGeometry(0, 0, 840, 840);
 
     chessBoard(gameWidget);

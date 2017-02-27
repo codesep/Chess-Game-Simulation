@@ -43,12 +43,12 @@ void Validation::validatePawn(Tile *tmp){
     if(i + 1<=8 && tile[i + 1][j]->piece == ""){
         displayOrange(tile[i + 1][j]);
         possibleMoves.push_back(make_pair(i + 1, j));
+        if(i == 2 && tile[i + 2][j]->piece == ""){
+            displayOrange(tile[i + 2][j]);
+            possibleMoves.push_back(make_pair(i + 2, j));
+        }
     }
 
-    if(i == 2 && tile[i + 2][j]->piece == ""){
-        displayOrange(tile[i + 2][j]);
-        possibleMoves.push_back(make_pair(i + 2, j));
-    }
 
     if(i + 1<=8 && j + 1<=8 && tile[i + 1][j + 1]->piece[0] == 'B'){
         displayRed(tile[i + 1][j + 1]);
@@ -347,10 +347,6 @@ void Validation::validateKing(Tile *tmp){
         }
     }
 }
-
-
-
-
 
 
 #endif // VALIDATEMEMBERFUNCTION_H

@@ -4,7 +4,7 @@
 	Member Function: makeMove
 
 	Takes input the piece name and the position ('finalPosition') to which the piece is to be moved.
-	
+	}
 	Function moves the piece to the 'finalPosition' and freeing the block occupied earlier.
 */
 
