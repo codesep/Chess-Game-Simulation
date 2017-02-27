@@ -11,10 +11,15 @@ public:
 	void removePiece(string);
 	pair<int, char> getPosFromPiece(string);
 	string getPieceFromPos(pair<int, char>);
+	map<string, pair<int, char> > getAvailablePieces();
 };
 
+map<string, pair<int, char> > Player::getAvailablePieces() {
+	return pieces;
+}
+
 void Player::makeMove(string piece, string finalPosition) {
-	pair<int, char> pos = make_pair(finalPosition[0] - '0', finalPosition[1]);
+	pair<int, char> pos = make_pair(finalPosition[1] - '0', finalPosition[0]);
 
 	//Remove the piece from it's current position
 	reversePieces[pieces[piece]] = "";

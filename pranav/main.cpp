@@ -4,6 +4,7 @@
 #include <map>
 #include <set>
 #include <climits>
+#include <iomanip>
 using namespace std;
 
 typedef long long ll;
@@ -15,6 +16,8 @@ typedef long long ll;
 int main() {
 	//Game runner;
 	//runner.begin();
+	Game game(3);
+	game.simulateGame();
 	return 0;
 }
 

@@ -78,15 +78,63 @@ public:
 		chessBoard[1]['e'] = "K";
 		colourOfPiece[1]['e'] = 1;
 	}
-	bool validateWhiteMove(string, string);
+	bool validateMove(string, string, bool);
 	bool isCheck(bool);
 	void makeMove(string, string, bool);
 	bool checkmate(bool);
-	vector<pair<string, string> > getValidActions(bool);
+	void printState();
+	set<pair<string, string> > getValidActions(bool);
+	ll evaluate();
 };
 
-bool State::checkmate(bool colour) {
+ll State::evaluate() {
 
+}
+
+bool State::checkmate(bool colour) {
+	return false;
+}
+
+set<pair<string, string> > State::getValidActions(bool colour) {
+	set<pair<string, string> > actions;
+	map<string, pair<int, char> > pieces;
+
+	if(colour)
+		pieces = White.getAvailablePieces();
+	else
+		pieces = Black.getAvailablePieces();
+
+	for(auto it = pieces.begin(); it != pieces.end(); ++it) {
+		for(int i = 1; i <= 8; ++i) {
+			for(char j = 'a'; j <= 'h'; ++j) {
+				string finalPosition = j + to_string(i);
+				if(validateMove(it->first, finalPosition, colour))
+					actions.insert(make_pair(it->first, finalPosition));
+			}
+		}
+	}
+	return actions;
+}
+
+void State::printState() {
+	for(int i = 8; i >= 1; --i) {
+		cout<< i << " ";
+		for(char j = 'a'; j <= 'h'; ++j) {
+			if(colourOfPiece[i][j] == 1)
+				cout << setw(4) << chessBoard[i][j];
+			else if(colourOfPiece[i][j] == -1) 
+				cout << "\033[38;2;0;0;0m" << setw(4) << chessBoard[i][j] << "\033[0m";
+			else
+				cout << setw(4) << ".";
+		}
+		cout << endl;
+	}
+	cout << "  "; 
+	for(char j = 'a'; j <= 'h'; ++j) {
+		cout << setw(4) << j; 
+	}
+	cout << endl;
+	return;
 }
 
 void State::makeMove(string piece, string finalPosition, bool colour) {
@@ -101,7 +149,7 @@ void State::makeMove(string piece, string finalPosition, bool colour) {
 		
 		White.makeMove(piece, finalPosition);
 		curPos = White.getPosFromPiece(piece);
-		
+
 		chessBoard[curPos.first][curPos.second] = piece;
 		colourOfPiece[curPos.first][curPos.second] = 1;
 		
@@ -128,17 +176,18 @@ void State::makeMove(string piece, string finalPosition, bool colour) {
 }
 
 bool State::isCheck(bool colour) {
+	return false;
 	if(colour) {
 		auto king_pos = White.getPosFromPiece("K");
 
 	}
 }
 
-bool State::validateWhiteMove(string piece, string finalPosition) {
+bool State::validateMove(string piece, string finalPosition, bool colour) {
+	return true;
 	if(White.getPosFromPiece(piece) != make_pair(-1, 'z')) {
 		return false;
 	}
-	bool colour = true;
 
 	pair<int, char> pos = make_pair(finalPosition[1] - '0', finalPosition[0]);
 	pair<int, char> curPos = White.getPosFromPiece(piece);
@@ -201,87 +250,3 @@ bool State::validateWhiteMove(string piece, string finalPosition) {
 	}
 	return true;
 }
-
-vector<pair<string, string> > State::getValidActionsPawn(string piece, pair<int, char> currentPosition, int colour){
-	int i = currentPosition.first;
-	char ch = currentPosition.second;
-
-	vector<pair<string, string> > ret;
-
-	if(colour == 1){
-
-		if(i + 1<=8 && chessBoard[i + 1][ch] == ""){
-	        ret.push_back(make_pair(piece, to_string(i + 1) + ch));
-	        if(i == 2 && tile[i + 2][ch] == "")
-		        ret.push_back(make_pair(piece, to_string(i + 2) + ch));
-		}
-
-	    if(i + 1<=8 && ch + 1<='h' && colourOfPiece[i + 1][ch + 1] == -1)
-	        ret.push_back(make_pair(piece, to_string(i + 1) + char(ch + 1)));
-
-	    if(i + 1 <= 8 && ch - 1 >= 'a' && colourOfPiece[i + 1][ch - 1] == -1)
-	    	ret.push_back(make_pair(piece, to_string(i + 1) + char(ch - 1)));		
-	}
-	else{
-		if(i - 1 >= 1 && chessBoard[i - 1][ch] == ""){
-	        ret.push_back(make_pair(piece, to_string(i - 1) + ch));
-	        if(i == 7 && tile[i - 2][ch] == "")
-		        ret.push_back(make_pair(piece, to_string(i - 2) + ch));
-		}
-
-	    if(i - 1 >= 1 && ch + 1<='h' && colourOfPiece[i - 1][ch + 1] == 1)
-	        ret.push_back(make_pair(piece, to_string(i - 1) + char(ch + 1)));
-
-	    if(i - 1 >= 1 && ch - 1 >= 'a' && colourOfPiece[i - 1][ch - 1] == 1)
-	    	ret.push_back(make_pair(piece, to_string(i - 1) + char(ch - 1)));			
-	}
-	return ret;
-}
-
-vector<pair<string, string> > State::getValidActions(int colour){
-	vector<pair<string, string> > Actions;
-	for(int r = 1; r <= 8; r++){
-		for(char ch = 'a'; ch <= 'h'; ch++){
-			if(colourOfPiece[r][ch] == colour*-1){
-				vector<pair<string, string> > tmp;
-
-				switch(chessBoard[r][ch][0]){
-					case 'P': ret = getValidActionsPawn
-				}
-
-				for(int i = 0; i < tmp.size(); i++)
-					Actions.push_back(tmp[i]);
-			}
-		}
-	}
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
