@@ -10,76 +10,82 @@
 
 Player::Player(bool type){
 	if(type == 1){	// Player with white pieces
+
+		// Set color of the player
+		color = 1;
 		
 		//	Pawns ('P')
 		int ix = 1;
 		for(char ch = 'a'; ch <= 'h'; ch++, ix++){
-			pieces["WP" + to_string(ix)] = make_pair(2, ch);
-			reversePieces[make_pair(2, ch)] = "WP" + to_string(ix);
+			pieces["P" + to_string(ix)] = make_pair(2, ch);
+			reversePieces[make_pair(2, ch)] = "P" + to_string(ix);
 		}
 
 		// Rook	('R')
-		pieces["WR1"] = make_pair(1, 'a');
-		pieces["WR2"] = make_pair(1, 'h');
-		reversePieces[make_pair(1, 'a')] = "WR1";
-		reversePieces[make_pair(1, 'h')] = "WR2";
+		pieces["R1"] = make_pair(1, 'a');
+		pieces["R2"] = make_pair(1, 'h');
+		reversePieces[make_pair(1, 'a')] = "R1";
+		reversePieces[make_pair(1, 'h')] = "R2";
 
 
 		// Knight	('N')
-		pieces["WN1"] = make_pair(1, 'b');
-		pieces["WN2"] = make_pair(1, 'g');
-		reversePieces[make_pair(1, 'b')] = "WN1";
-		reversePieces[make_pair(1, 'g')] = "WN2";
+		pieces["N1"] = make_pair(1, 'b');
+		pieces["N2"] = make_pair(1, 'g');
+		reversePieces[make_pair(1, 'b')] = "N1";
+		reversePieces[make_pair(1, 'g')] = "N2";
 
 		//Bishop ('B')
-		pieces["WB1"] = make_pair(1, 'c');
-		pieces["WB2"] = make_pair(1, 'f');
-		reversePieces[make_pair(1, 'c')] = "WB1";
-		reversePieces[make_pair(1, 'f')] = "WB2";
+		pieces["B1"] = make_pair(1, 'c');
+		pieces["B2"] = make_pair(1, 'f');
+		reversePieces[make_pair(1, 'c')] = "B1";
+		reversePieces[make_pair(1, 'f')] = "B2";
 
 		//Queen ('Q')
-		pieces["WQ"] = make_pair(1, 'd');
-		reversePieces[make_pair(1, 'd')] = "WQ";
+		pieces["Q"] = make_pair(1, 'd');
+		reversePieces[make_pair(1, 'd')] = "Q";
 
 		//King ('K')
-		pieces["WK"] = make_pair(1, 'e');
-		reversePieces[make_pair(1, 'e')] = "WK";
+		pieces["K"] = make_pair(1, 'e');
+		reversePieces[make_pair(1, 'e')] = "K";
 
 	}	
 	else{			// Player with black pieces
+
+		// Set color of the player
+		color = -1;		
 
 		//	Pawns ('P')
 		int ix = 1;
 		for(char ch = 'a'; ch <= 'h'; ch++, ix++){
 			pieces["BP" + to_string(ix)] = make_pair(7, ch);
-			reversePieces[make_pair(7, ch)] = "WP" + to_string(ix);
+			reversePieces[make_pair(7, ch)] = "P" + to_string(ix);
 		}
 
 		// Rook	('R')
-		pieces["BR1"] = make_pair(8, 'a');
-		pieces["BR2"] = make_pair(8, 'h');
-		reversePieces[make_pair(8, 'a')] = "WR1";
-		reversePieces[make_pair(8, 'h')] = "WR2";
+		pieces["R1"] = make_pair(8, 'a');
+		pieces["R2"] = make_pair(8, 'h');
+		reversePieces[make_pair(8, 'a')] = "R1";
+		reversePieces[make_pair(8, 'h')] = "R2";
 
 		// Knight	('N')
-		pieces["BN1"] = make_pair(8, 'b');
-		pieces["BN2"] = make_pair(8, 'g');
-		reversePieces[make_pair(8, 'b')] = "WN1";
-		reversePieces[make_pair(8, 'g')] = "WN2";
+		pieces["N1"] = make_pair(8, 'b');
+		pieces["N2"] = make_pair(8, 'g');
+		reversePieces[make_pair(8, 'b')] = "N1";
+		reversePieces[make_pair(8, 'g')] = "N2";
 
 		//Bishop ('B')
-		pieces["BB1"] = make_pair(8, 'c');
-		pieces["BB2"] = make_pair(8, 'f');
-		reversePieces[make_pair(8, 'c')] = "WB1";
-		reversePieces[make_pair(8, 'f')] = "WB2";
+		pieces["B1"] = make_pair(8, 'c');
+		pieces["B2"] = make_pair(8, 'f');
+		reversePieces[make_pair(8, 'c')] = "B1";
+		reversePieces[make_pair(8, 'f')] = "B2";
 
 		//Queen ('Q')
-		pieces["BQ"] = make_pair(8, 'd');
-		reversePieces[make_pair(8, 'd')] = "WQ";
+		pieces["Q"] = make_pair(8, 'd');
+		reversePieces[make_pair(8, 'd')] = "Q";
 
 		//King ('K')
-		pieces["BK"] = make_pair(8, 'e');
-		reversePieces[make_pair(8, 'e')] = "WK";
+		pieces["K"] = make_pair(8, 'e');
+		reversePieces[make_pair(8, 'e')] = "K";
 
 	}
 }

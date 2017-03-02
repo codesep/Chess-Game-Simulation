@@ -9,7 +9,9 @@
 */
 
 bool Player::checkFreeBlock(pair<int, char> pos){
+	//Checks if the given position is free or not
 	if(this->reversePieces[pos] == "")
 		return 1;
+
 	return 0;
 }

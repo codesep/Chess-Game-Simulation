@@ -17,5 +17,8 @@ void Player::removePiece(string piece){
 
 	// Emptying the position in reversePieces
 	this->reversePieces[pos] = "";
+
+	// Store the piece in the removedPiece Set
+	this->removedPiece.insert(piece);
 }
 
